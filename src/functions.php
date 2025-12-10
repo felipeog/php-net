@@ -13,3 +13,10 @@ function dd($value)
 
     die();
 }
+
+function abort($code)
+{
+    header("Location: /error?code={$code}");
+
+    die();
+}
