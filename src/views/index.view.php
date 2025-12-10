@@ -10,7 +10,9 @@
         <?php foreach ($posts as $post): ?>
             <article>
                 <h3>
-                    <a href="/post?id=<?= htmlspecialchars($post['id']) ?>"><?= htmlspecialchars($post['title']) ?></a>
+                    <a href="/post?id=<?= htmlspecialchars($post['id']) ?>">
+                        <?= htmlspecialchars($post['title']) ?>
+                    </a>
                 </h3>
             </article>
         <?php endforeach; ?>
