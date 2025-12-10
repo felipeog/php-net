@@ -1,12 +1,30 @@
+<?php
+
+$activeStyle = 'style="font-weight:bold"';
+$inactiveStyle = '';
+$links = [
+    [
+        'path' => '/',
+        'label' => 'Home'
+    ],
+    [
+        'path' => '/about',
+        'label' => 'About'
+    ]
+];
+
+?>
+
 <header>
     <nav>
         <ul>
-            <li>
-                <a href="/" <?= isCurrentUri('/') ? 'style="font-weight:bold"' : '' ?>>Home</a>
-            </li>
-            <li>
-                <a href="/about" <?= isCurrentUri('/about') ? 'style="font-weight:bold"' : '' ?>>About</a>
-            </li>
+            <?php foreach ($links as $link): ?>
+                <li>
+                    <a href="<?= $link['path'] ?>" <?= isCurrentUri($link['path']) ? $activeStyle : $inactiveStyle ?>>
+                        <?= $link['label'] ?>
+                    </a>
+                </li>
+            <?php endforeach ?>
         </ul>
     </nav>
 </header>
