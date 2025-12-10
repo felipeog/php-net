@@ -1,24 +1,9 @@
-<!DOCTYPE html>
+<?php
 
-<html lang="en">
+require 'functions.php';
+require 'Database.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+$config = require 'config.php';
+$db = new Database($config['dbDsn'], $config['dbCredentials']);
 
-    <title>Index</title>
-</head>
-
-<body>
-    <h1>Index</h1>
-
-    <nav>
-        <ul>
-            <li><a href="/phpinfo.php">phpinfo()</a></li>
-            <li><a href="/superglobals.php">Superglobals</a></li>
-            <li><a href="/form.php">Form</a></li>
-        </ul>
-    </nav>
-</body>
-
-</html>
+require 'router.php';
