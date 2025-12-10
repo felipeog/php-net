@@ -3,6 +3,7 @@
 
 <main>
     <h1>Error</h1>
+
     <?= $code ? "<p>Error code: {$code}</p>" : '' ?>
 </main>
 

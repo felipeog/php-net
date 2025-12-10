@@ -4,9 +4,9 @@
 <main>
     <h1>Home</h1>
 
-    <h2>Posts</h2>
-
     <section>
+        <h2>Posts</h2>
+
         <?php foreach ($posts as $post): ?>
             <article>
                 <h3>
