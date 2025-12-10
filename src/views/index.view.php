@@ -4,11 +4,14 @@
 <main>
     <h1>Home</h1>
 
+    <h2>Posts</h2>
+
     <section>
         <?php foreach ($posts as $post): ?>
             <article>
-                <h2><?= htmlspecialchars($post['title']) ?></h2>
-                <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                <h3>
+                    <a href="/post?id=<?= htmlspecialchars($post['id']) ?>"><?= htmlspecialchars($post['title']) ?></a>
+                </h3>
             </article>
         <?php endforeach; ?>
     </section>
