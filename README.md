@@ -1,3 +1,3 @@
-# php-net
+# PHP
 
-https://www.php.net/manual/en/index.php
+Learning PHP by making projects.
