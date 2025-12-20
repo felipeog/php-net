@@ -5,7 +5,7 @@ $path = $urlComponents['path'];
 $routes = require base_path('routes.php');
 
 if (array_key_exists($path, $routes)) {
-    require $routes[$path];
+    require base_path($routes[$path]);
 } else {
     abort(Response::NOT_FOUND);
 }
