@@ -1,6 +1,6 @@
 <?php
 
-function isCurrentUri($uri)
+function is_current_uri($uri)
 {
     return $_SERVER['REQUEST_URI'] === $uri;
 }
@@ -26,4 +26,9 @@ function authorize($condition, $code = Response::FORBIDDEN)
     if (!$condition) {
         abort($code);
     }
+}
+
+function base_path($path)
+{
+    return BASE_PATH . $path;
 }

@@ -24,7 +24,7 @@ $links = [
         <ul>
             <?php foreach ($links as $link): ?>
                 <li>
-                    <a href="<?= $link['path'] ?>" <?= isCurrentUri($link['path']) ? $activeStyle : $inactiveStyle ?>>
+                    <a href="<?= $link['path'] ?>" <?= is_current_uri($link['path']) ? $activeStyle : $inactiveStyle ?>>
                         <?= $link['label'] ?>
                     </a>
                 </li>

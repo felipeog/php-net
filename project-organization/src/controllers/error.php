@@ -2,4 +2,4 @@
 
 $code = $_GET['code'] ?? null;
 
-require 'views/error.view.php';
+require base_path('views/error.view.php');

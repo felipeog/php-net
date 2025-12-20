@@ -2,7 +2,7 @@
 
 $urlComponents = parse_url($_SERVER['REQUEST_URI']);
 $path = $urlComponents['path'];
-$routes = require 'routes.php';
+$routes = require base_path('routes.php');
 
 if (array_key_exists($path, $routes)) {
     require $routes[$path];
