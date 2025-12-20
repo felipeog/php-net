@@ -6,4 +6,4 @@ $note = $db->query($query, [':id' => $id])->fetchOrFail();
 
 authorize($note['user_id'] === $hardcodedUserId, Response::FORBIDDEN);
 
-require 'views/note.view.php';
+require 'views/notes/show.view.php';

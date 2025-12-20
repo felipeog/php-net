@@ -2,9 +2,9 @@
 <?php require 'views/partials/header.php' ?>
 
 <main>
-    <h1>Error</h1>
+    <h1>Note</h1>
 
-    <?= $code ? "<p>Error code: {$code}</p>" : '' ?>
+    <p><?= nl2br(htmlspecialchars($note['body'])) ?></p>
 </main>
 
 <?php require 'views/partials/footer.php' ?>

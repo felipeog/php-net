@@ -1,5 +1,5 @@
-<?php require 'partials/head.php' ?>
-<?php require 'partials/header.php' ?>
+<?php require 'views/partials/head.php' ?>
+<?php require 'views/partials/header.php' ?>
 
 <main>
     <h1>Create note</h1>
@@ -21,5 +21,5 @@
     </form>
 </main>
 
-<?php require 'partials/footer.php' ?>
-<?php require 'partials/foot.php' ?>
+<?php require 'views/partials/footer.php' ?>
+<?php require 'views/partials/foot.php' ?>
