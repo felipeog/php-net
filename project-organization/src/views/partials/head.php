@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="index.css">
 
-    <title>PHP</title>
+    <title><?= $title ? "{$title} | PHP" : 'PHP' ?></title>
 </head>
 
 <body>

@@ -1,7 +1,8 @@
 <?php
 
+$errors = [];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $errors = [];
 
     if (!Validator::string($_POST['body'], 1, 1000)) {
         $errors['body'] = 'Body length must be between 1 and 1000';
@@ -15,4 +16,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-require base_path('views/notes/create.view.php');
+view('notes/create.view.php', ['errors' => $errors]);
