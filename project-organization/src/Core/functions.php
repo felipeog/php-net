@@ -14,14 +14,14 @@ function dd($value)
     die();
 }
 
-function abort($code = Response::NOT_FOUND)
+function abort($code = Core\Response::NOT_FOUND)
 {
     header("Location: /error?code={$code}");
 
     die();
 }
 
-function authorize($condition, $code = Response::FORBIDDEN)
+function authorize($condition, $code = Core\Response::FORBIDDEN)
 {
     if (!$condition) {
         abort($code);

@@ -1,6 +1,8 @@
 <?php
 
-use LDAP\Result;
+namespace Core;
+
+use PDO;
 
 class Database
 {

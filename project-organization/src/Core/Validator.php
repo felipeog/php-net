@@ -1,5 +1,9 @@
 <?php
 
+namespace Core;
+
+use function is_string, strlen;
+
 class Validator
 {
     public static function string($value, $min = 1, $max = INF)
