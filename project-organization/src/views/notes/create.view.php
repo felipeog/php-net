@@ -4,7 +4,7 @@
 <main>
     <h1>Create note</h1>
 
-    <form method="POST" action="">
+    <form method="POST" action="/notes">
         <label for="body">Body</label>
 
         <br />
