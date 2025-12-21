@@ -12,7 +12,7 @@ $links = [
         'label' => 'Notes'
     ],
     [
-        'uri' => '/note-create',
+        'uri' => '/notes/create',
         'label' => 'Create note'
     ]
 ];
