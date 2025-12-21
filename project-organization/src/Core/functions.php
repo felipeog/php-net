@@ -17,7 +17,6 @@ function dd($value)
 function abort($code = Core\Response::NOT_FOUND)
 {
     header("Location: /error?code={$code}");
-
     die();
 }
 
