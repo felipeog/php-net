@@ -1,12 +1,16 @@
 <?php
 
+use Core\App;
+use Core\Database;
+use Core\Validator;
+
+$db = App::resolve(Database::class);
+
 $hardcodedUserId = 1;
-$config = require base_path('config.php');
-$db = new Core\Database($config['dbDsn'], $config['dbCredentials']);
 
 $errors = [];
 
-if (!Core\Validator::string($_POST['body'], 1, 1000)) {
+if (!Validator::string($_POST['body'], 1, 1000)) {
     $errors['body'] = 'Body length must be between 1 and 1000';
 }
 

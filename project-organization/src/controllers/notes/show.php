@@ -1,12 +1,16 @@
 <?php
 
+use Core\App;
+use Core\Database;
+use Core\Response;
+
+$db = App::resolve(Database::class);
+
 $hardcodedUserId = 1;
-$config = require base_path('config.php');
-$db = new Core\Database($config['dbDsn'], $config['dbCredentials']);
 
 $id = $_GET['id'] ?? null;
 $note = $db->query('SELECT * FROM notes WHERE id = :id', [':id' => $id])->fetchOrFail();
 
-authorize($note['user_id'] === $hardcodedUserId, Core\Response::FORBIDDEN);
+authorize($note['user_id'] === $hardcodedUserId, Response::FORBIDDEN);
 view('notes/show.view.php', ['note' => $note]);
 
