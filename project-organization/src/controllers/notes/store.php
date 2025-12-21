@@ -6,7 +6,6 @@ use Core\Validator;
 
 $db = App::resolve(Database::class);
 
-$hardcodedUserId = 1;
 
 $errors = [];
 
@@ -19,9 +18,11 @@ if (!empty($errors)) {
     return view('notes/create.view.php', ['errors' => $errors]);
 }
 
+$hardcodedUserId = 1;
 $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
     ':body' => $_POST['body'],
     ':user_id' => $hardcodedUserId
 ]);
 
 header('Location: /notes');
+die();
