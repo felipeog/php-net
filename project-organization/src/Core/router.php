@@ -1,11 +1,64 @@
 <?php
 
-$urlComponents = parse_url($_SERVER['REQUEST_URI']);
-$path = $urlComponents['path'];
-$routes = require base_path('routes.php');
+namespace Core;
 
-if (array_key_exists($path, $routes)) {
-    require base_path($routes[$path]);
-} else {
-    abort(Core\Response::NOT_FOUND);
+class Router
+{
+    protected $routes = [];
+
+    protected function add($method, $uri, $controller)
+    {
+        $this->routes[] = [
+            'method' => $method,
+            'uri' => $uri,
+            'controller' => $controller
+        ];
+    }
+
+    public function get($uri, $controller)
+    {
+        $this->add('GET', $uri, $controller);
+    }
+
+    public function post($uri, $controller)
+    {
+        $this->add('POST', $uri, $controller);
+    }
+
+    public function delete($uri, $controller)
+    {
+        $this->add('DELETE', $uri, $controller);
+    }
+
+    public function patch($uri, $controller)
+    {
+        $this->add('PATCH', $uri, $controller);
+    }
+
+    public function put($uri, $controller)
+    {
+        $this->add('PUT', $uri, $controller);
+    }
+
+    public function route($uri, $method)
+    {
+        foreach ($this->routes as $route) {
+            $is_current_uri = $route['uri'] === $uri;
+            $is_current_method = $route['method'] === strtoupper($method);
+
+            if ($is_current_uri && $is_current_method) {
+                return require base_path($route['controller']);
+            }
+        }
+
+
+        $this->abort(Response::NOT_FOUND);
+    }
+
+    protected function abort($code = Response::NOT_FOUND)
+    {
+        header("Location: /error?code={$code}");
+        die();
+    }
 }
+

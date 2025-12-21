@@ -10,8 +10,10 @@ spl_autoload_register(function ($class) {
     require base_path("{$class_path}.php");
 });
 
-$hardcodedUserId = 1;
-$config = require base_path('config.php');
-$db = new Core\Database($config['dbDsn'], $config['dbCredentials']);
+$router = new Core\Router();
+$routes = require base_path('routes.php');
 
-require base_path('Core/router.php');
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
+$router->route($uri, $method);

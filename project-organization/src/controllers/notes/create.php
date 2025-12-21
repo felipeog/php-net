@@ -1,5 +1,9 @@
 <?php
 
+$hardcodedUserId = 1;
+$config = require base_path('config.php');
+$db = new Core\Database($config['dbDsn'], $config['dbCredentials']);
+
 $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

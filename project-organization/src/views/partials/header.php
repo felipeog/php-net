@@ -4,15 +4,15 @@ $activeStyle = 'style="font-weight:bold"';
 $inactiveStyle = '';
 $links = [
     [
-        'path' => '/',
+        'uri' => '/',
         'label' => 'Home'
     ],
     [
-        'path' => '/notes',
+        'uri' => '/notes',
         'label' => 'Notes'
     ],
     [
-        'path' => '/note-create',
+        'uri' => '/note-create',
         'label' => 'Create note'
     ]
 ];
@@ -24,7 +24,7 @@ $links = [
         <ul>
             <?php foreach ($links as $link): ?>
                 <li>
-                    <a href="<?= $link['path'] ?>" <?= is_current_uri($link['path']) ? $activeStyle : $inactiveStyle ?>>
+                    <a href="<?= $link['uri'] ?>" <?= is_current_uri($link['uri']) ? $activeStyle : $inactiveStyle ?>>
                         <?= $link['label'] ?>
                     </a>
                 </li>

@@ -1,5 +1,9 @@
 <?php
 
+$hardcodedUserId = 1;
+$config = require base_path('config.php');
+$db = new Core\Database($config['dbDsn'], $config['dbCredentials']);
+
 $select_query = 'SELECT * FROM notes WHERE id = :id';
 $delete_query = 'DELETE FROM notes WHERE id = :id';
 
