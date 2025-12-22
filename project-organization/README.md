@@ -1,6 +1,6 @@
 [_PHP For Beginners_](https://laracasts.com/series/php-for-beginners-2023-edition)
 
-# Notes Mini-Project
+# Project Organization
 
 - **Resourceful naming conventions**
 - **Project structure** basics
