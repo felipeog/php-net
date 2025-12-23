@@ -1,8 +1,14 @@
 INSERT INTO
-    users (name, email)
+    users (email, password)
 VALUES
-    ('First User', 'firstuser@example.com'),
-    ('Second User', 'seconduser@example.com');
+    (
+        'firstuser@example.com',
+        '$2y$10$NNuq2V.Fihhwrdhi2Y7yhOMytaByC2KxMhOf6P8zZfn6d4987/ocu'
+    ),
+    (
+        'seconduser@example.com',
+        '$2y$10$NNuq2V.Fihhwrdhi2Y7yhOMytaByC2KxMhOf6P8zZfn6d4987/ocu'
+    );
 
 INSERT INTO
     notes (body, user_id)
