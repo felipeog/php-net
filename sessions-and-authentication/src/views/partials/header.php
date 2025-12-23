@@ -31,4 +31,13 @@ $links = [
             <?php endforeach ?>
         </ul>
     </nav>
+
+    <div>
+        <?php if (isset($_SESSION['user'])): ?>
+            <a href="#">Logout</a>
+        <?php else: ?>
+            <a href="#">Login</a>
+            <a href="/register">Register</a>
+        <?php endif ?>
+    </div>
 </header>
