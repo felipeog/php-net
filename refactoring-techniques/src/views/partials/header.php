@@ -1,5 +1,7 @@
 <?php
 
+use Core\Session;
+
 $active_style = 'style="font-weight:bold"';
 $inactive_style = '';
 
@@ -37,7 +39,7 @@ $right_links = [
     <nav>
         <ul>
             <?php foreach ($left_links as $link): ?>
-                <?php if ($link['is_private'] && !isset($_SESSION['user']))
+                <?php if ($link['is_private'] && !Session::has('user'))
                     continue; ?>
 
                 <li>
@@ -49,7 +51,7 @@ $right_links = [
         </ul>
     </nav>
 
-    <?php if (isset($_SESSION['user'])): ?>
+    <?php if (Session::has('user')): ?>
         <form method="POST" action="/session">
             <input type="hidden" name="_method" value="DELETE" />
 
