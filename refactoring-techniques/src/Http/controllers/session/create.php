@@ -2,6 +2,9 @@
 
 use Core\Session;
 
-$errors = Session::get('errors', []);
+$attributes = [
+    'errors' => Session::get('errors', []),
+    'old' => Session::get('old', [])
+];
 
-view('session/create.view.php', ['errors' => $errors]);
+view('session/create.view.php', $attributes);

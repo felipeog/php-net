@@ -7,7 +7,7 @@
     <form method="POST" action="/session">
         <label for="email">Email</label>
         <br />
-        <input type="email" name="email" id="email" value="<?= $_POST['email'] ?? '' ?>" />
+        <input type="email" name="email" id="email" value="<?= $old['email'] ?? '' ?>" />
         <?php if (isset($errors['email'])): ?>
             <br />
             <span><?= $errors['email'] ?></span>
@@ -18,7 +18,7 @@
 
         <label for="password">Password</label>
         <br />
-        <input type="password" name="password" id="password" value="<?= $_POST['password'] ?? '' ?>" />
+        <input type="password" name="password" id="password" />
         <?php if (isset($errors['password'])): ?>
             <br />
             <span><?= $errors['password'] ?></span>
