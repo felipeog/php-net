@@ -55,13 +55,13 @@ header {
   border-bottom: 1px solid rgb(127 127 127);
 }
 
-header div {
+header nav ul {
+  list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-nav ul {
-  list-style: none;
+header div {
   display: flex;
   gap: 1rem;
 }
