@@ -4,9 +4,7 @@
 <main>
     <h1>Home</h1>
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, harum atque. Illo consequatur distinctio
-        numquam debitis officia animi iusto, minima fuga iure voluptatum placeat sed eaque obcaecati veniam maiores.
-        Exercitationem.</p>
+    <p>Hello, <?= $_SESSION['user']['email'] ?? 'Guest' ?>.</p>
 </main>
 
 <?php partial('footer.php', []) ?>
