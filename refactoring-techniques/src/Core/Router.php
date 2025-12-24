@@ -69,6 +69,11 @@ class Router
         $this->abort(Response::NOT_FOUND);
     }
 
+    public function previousUrl()
+    {
+        return $_SERVER['HTTP_REFERER'] ?? '/';
+    }
+
     protected function abort($code = Response::NOT_FOUND)
     {
         header("Location: /error?code={$code}");
