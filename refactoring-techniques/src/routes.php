@@ -1,20 +1,20 @@
 <?php
 
-$router->get('/', 'controllers/index.php');
+$router->get('/', 'index');
 
-$router->get('/error', 'controllers/error.php');
+$router->get('/error', 'error');
 
-$router->get('/notes', 'controllers/notes/index.php')->only('auth');
-$router->get('/notes/create', 'controllers/notes/create.php')->only('auth');
-$router->post('/notes', 'controllers/notes/store.php')->only('auth');
-$router->patch('/notes', 'controllers/notes/update.php')->only('auth');
-$router->get('/note', 'controllers/notes/show.php')->only('auth');
-$router->delete('/note', 'controllers/notes/destroy.php')->only('auth');
-$router->get('/note/edit', 'controllers/notes/edit.php')->only('auth');
+$router->get('/notes', 'notes/index')->only('auth');
+$router->get('/notes/create', 'notes/create')->only('auth');
+$router->post('/notes', 'notes/store')->only('auth');
+$router->patch('/notes', 'notes/update')->only('auth');
+$router->get('/note', 'notes/show')->only('auth');
+$router->delete('/note', 'notes/destroy')->only('auth');
+$router->get('/note/edit', 'notes/edit')->only('auth');
 
-$router->get('/register', 'controllers/registration/create.php')->only('guest');
-$router->post('/register', 'controllers/registration/store.php')->only('guest');
+$router->get('/register', 'registration/create')->only('guest');
+$router->post('/register', 'registration/store')->only('guest');
 
-$router->get('/login', 'controllers/session/create.php')->only('guest');
-$router->post('/session', 'controllers/session/store.php')->only('guest');
-$router->delete('/session', 'controllers/session/destroy.php')->only('auth');
+$router->get('/login', 'session/create')->only('guest');
+$router->post('/session', 'session/store')->only('guest');
+$router->delete('/session', 'session/destroy')->only('auth');

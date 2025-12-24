@@ -61,7 +61,7 @@ class Router
             if ($is_current_uri && $is_current_method) {
                 Middleware::resolve($route['middleware']);
 
-                return require base_path($route['controller']);
+                return require base_path("Http/controllers/{$route['controller']}.php");
             }
         }
 
