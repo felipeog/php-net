@@ -5,9 +5,9 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-$hardcodedUserId = 1;
+$user_id = $user_id = $_SESSION['user']['id'] ?? null;
 $notes = $db->query('SELECT * FROM notes WHERE user_id = :user_id', [
-    ':user_id' => $hardcodedUserId
+    ':user_id' => $user_id
 ])->fetchAll();
 
 view('notes/index.view.php', ['notes' => $notes]);

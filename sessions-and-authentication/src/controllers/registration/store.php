@@ -37,6 +37,12 @@ $db->query('INSERT INTO users (email, password) VALUES (:email, :password)', [
     ':email' => $email,
     ':password' => password_hash($password, PASSWORD_BCRYPT)
 ]);
+$user_id = $db->connection->lastInsertId();
+
+$user = [
+    'email' => $email,
+    'id' => $user_id,
+];
 
 login($user);
 header('Location: /');

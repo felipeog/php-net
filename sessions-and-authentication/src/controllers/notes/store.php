@@ -18,10 +18,10 @@ if (!empty($errors)) {
     return view('notes/create.view.php', ['errors' => $errors]);
 }
 
-$hardcodedUserId = 1;
+$user_id = $_SESSION['user']['id'] ?? null;
 $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
     ':body' => $_POST['body'],
-    ':user_id' => $hardcodedUserId
+    ':user_id' => $user_id
 ]);
 
 header('Location: /notes');
