@@ -1,0 +1,35 @@
+<?php partial('head.php', ['title' => 'Home']) ?>
+<?php partial('header.php', []) ?>
+
+<main>
+    <h1>Register</h1>
+
+    <form method="POST" action="/register">
+        <label for="email">Email</label>
+        <br />
+        <input type="email" name="email" id="email" value="<?= $_POST['email'] ?? '' ?>" />
+        <?php if (isset($errors['email'])): ?>
+            <br />
+            <span><?= $errors['email'] ?></span>
+        <?php endif ?>
+
+        <br />
+        <br />
+
+        <label for="password">Password</label>
+        <br />
+        <input type="password" name="password" id="password" value="<?= $_POST['password'] ?? '' ?>" />
+        <?php if (isset($errors['password'])): ?>
+            <br />
+            <span><?= $errors['password'] ?></span>
+        <?php endif ?>
+
+        <br />
+        <br />
+
+        <button type="submit">Register</button>
+    </form>
+</main>
+
+<?php partial('footer.php', []) ?>
+<?php partial('foot.php', []) ?>
