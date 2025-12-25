@@ -8,7 +8,7 @@ $attributes = [
     'password' => $_POST['password']
 ];
 
-$form = LoginForm::validate($attributes);
+$form = LoginForm::validateForm($attributes);
 
 $auth = new Authenticator();
 $signed_in = $auth->attempt($attributes['email'], $attributes['password']);
