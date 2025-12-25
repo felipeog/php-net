@@ -7,7 +7,6 @@ $attributes = [
     'email' => $_POST['email'],
     'password' => $_POST['password']
 ];
-
 $form = LoginForm::validateForm($attributes);
 
 $auth = new Authenticator();
