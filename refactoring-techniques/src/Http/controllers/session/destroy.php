@@ -6,4 +6,3 @@ $auth = new Authenticator();
 
 $auth->logout();
 redirect('/');
-die();
