@@ -2,21 +2,15 @@
 
 use Core\Session;
 use Core\ValidationException;
-
-session_start();
-
 use Core\Router;
 
 const BASE_PATH = __DIR__ . '/../';
 
+require BASE_PATH . 'vendor/autoload.php';
+
+session_start();
+
 require BASE_PATH . 'Core/functions.php';
-
-spl_autoload_register(function ($class) {
-    $class_path = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-
-    require base_path("{$class_path}.php");
-});
-
 require base_path('bootstrap.php');
 
 $router = new Router();

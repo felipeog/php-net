@@ -1,0 +1,11 @@
+{
+  "name": "felipeog/notes",
+  "version": "1.0.0",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "Http\\": "Http/"
+    }
+  }
+}
