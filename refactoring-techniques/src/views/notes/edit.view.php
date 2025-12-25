@@ -12,7 +12,8 @@
 
         <br />
 
-        <textarea name="body" id="body" rows="10" cols="50"><?= htmlspecialchars($note['body']) ?? '' ?></textarea>
+        <textarea name="body" id="body" rows="10"
+            cols="50"><?= htmlspecialchars($old['body'] ?? $note['body'] ?? '') ?></textarea>
 
         <?php if (isset($errors['body'])): ?>
             <p><?= $errors['body'] ?></p>

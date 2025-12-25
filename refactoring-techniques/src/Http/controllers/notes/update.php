@@ -2,9 +2,9 @@
 
 use Core\App;
 use Core\Database;
-use Core\Validator;
 use Core\Response;
 use Core\Session;
+use Http\Forms\NoteForm;
 
 $db = App::resolve(Database::class);
 
@@ -15,25 +15,15 @@ $note = $db->query('SELECT * FROM notes WHERE id = :note_id', [':note_id' => $no
 
 authorize($note['user_id'] === $user_id, Response::FORBIDDEN);
 
-$errors = [];
+$attributes = [
+    'body' => $_POST['body'],
+];
 
-if (!Validator::string($_POST['body'], 1, 1000)) {
-    $errors['body'] = 'Body length must be between 1 and 1000';
-}
-
-// TODO: redirect with errors
-// TODO: extract validation
-// TODO: persist input
-if (!empty($errors)) {
-    return view('notes/edit.view.php', [
-        'note' => $note,
-        'errors' => $errors
-    ]);
-}
+$form = NoteForm::validateForm($attributes);
 
 $db->query('UPDATE notes SET body = :body WHERE id = :note_id', [
-    ':body' => $_POST['body'],
+    ':body' => $attributes['body'],
     ':note_id' => $note_id
 ]);
 
-redirect('/notes');
+redirect("/notes?id={$note_id}");

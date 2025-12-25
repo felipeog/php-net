@@ -13,7 +13,11 @@ $note_id = $_GET['id'] ?? null;
 $note = $db->query('SELECT * FROM notes WHERE id = :note_id', [':note_id' => $note_id])->fetchOrFail();
 
 authorize($note['user_id'] === $user_id, Response::FORBIDDEN);
-view('notes/edit.view.php', [
+
+$attributes = [
     'note' => $note,
-    'errors' => []
-]);
+    'errors' => Session::get('errors', []),
+    'old' => Session::get('old', [])
+];
+
+view('notes/edit.view.php', $attributes);
