@@ -13,4 +13,4 @@ $query = 'SELECT * FROM notes WHERE user_id = :user_id';
 $params = [':user_id' => $user_id];
 $notes = $db->query($query, $params)->fetchAll();
 
-view('notes/index.view.php', ['notes' => $notes]);
+view('notes/index', ['notes' => $notes]);

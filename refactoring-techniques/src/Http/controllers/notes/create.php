@@ -7,4 +7,4 @@ $attributes = [
     'old' => Session::get('old', [])
 ];
 
-view('notes/create.view.php', $attributes);
+view('notes/create', $attributes);

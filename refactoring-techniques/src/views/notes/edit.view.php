@@ -1,5 +1,5 @@
-<?php partial('head.php', ['title' => 'Edit Note']) ?>
-<?php partial('header.php', []) ?>
+<?php partial('head', ['title' => 'Edit Note']) ?>
+<?php partial('header', []) ?>
 
 <main>
     <h1>Edit note</h1>
@@ -25,5 +25,5 @@
     </form>
 </main>
 
-<?php partial('footer.php', []) ?>
-<?php partial('foot.php', []) ?>
+<?php partial('footer', []) ?>
+<?php partial('foot', []) ?>

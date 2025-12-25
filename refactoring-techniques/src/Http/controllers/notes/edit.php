@@ -23,4 +23,4 @@ $attributes = [
     'old' => Session::get('old', [])
 ];
 
-view('notes/edit.view.php', $attributes);
+view('notes/edit', $attributes);

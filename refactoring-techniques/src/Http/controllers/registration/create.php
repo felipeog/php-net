@@ -7,4 +7,4 @@ $attributes = [
     'old' => Session::get('old', [])
 ];
 
-view('registration/create.view.php', $attributes);
+view('registration/create', $attributes);
