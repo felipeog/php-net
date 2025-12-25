@@ -4,7 +4,7 @@ namespace Http\Forms;
 
 use Core\Validator;
 
-class LoginForm extends Form
+class RegisterForm extends Form
 {
     protected function validate()
     {
@@ -13,7 +13,7 @@ class LoginForm extends Form
         }
 
         if (!Validator::string($this->value('password'), 8, 255)) {
-            $this->errors['password'] = 'Invalid password';
+            $this->errors['password'] = 'Password length must be between 8 and 255';
         }
     }
 }
