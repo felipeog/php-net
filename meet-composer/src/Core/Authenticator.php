@@ -1,0 +1,38 @@
+<?php
+
+namespace Core;
+
+class Authenticator
+{
+    public function attempt($email, $password)
+    {
+        $db = App::resolve(Database::class);
+
+        $query = 'SELECT * FROM users WHERE email = :email';
+        $params = [':email' => $email];
+        $user = $db->query($query, $params)->fetch();
+
+        if ($user && password_verify($password, $user['password'])) {
+            $this->login($user);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function login($user)
+    {
+        Session::put('user', [
+            'email' => $user['email'],
+            'id' => (int) $user['id']
+        ]);
+
+        session_regenerate_id(true);
+    }
+
+    public function logout()
+    {
+        Session::destroy();
+    }
+}
