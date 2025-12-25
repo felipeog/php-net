@@ -19,5 +19,6 @@ $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
     ':body' => $attributes['body'],
     ':user_id' => $user_id
 ]);
+$note_id = $db->connection->lastInsertId();
 
-redirect('/notes');
+redirect("/note?id={$note_id}");
