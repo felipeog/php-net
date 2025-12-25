@@ -30,8 +30,7 @@ $existing_user = $db->query('SELECT * FROM users WHERE email = :email', [
 ])->fetch();
 
 if ($existing_user) {
-    header('Location /');
-    die();
+    redirect('/');
 }
 
 $db->query('INSERT INTO users (email, password) VALUES (:email, :password)', [
