@@ -47,5 +47,4 @@ $user = [
 ];
 
 $auth->login($user);
-header('Location: /');
-die();
+redirect('/');

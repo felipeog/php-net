@@ -16,10 +16,15 @@ function dd($value)
     die();
 }
 
+function redirect($path)
+{
+    header("Location: {$path}");
+    die();
+}
+
 function abort($code = Response::NOT_FOUND)
 {
-    header("Location: /error?code={$code}");
-    die();
+    redirect("/error?code={$code}");
 }
 
 function authorize($condition, $code = Response::FORBIDDEN)
@@ -46,12 +51,6 @@ function partial($path, $attributes = [])
     extract($attributes);
 
     require base_path("/views/partials/{$path}");
-}
-
-function redirect($path)
-{
-    header("Location: {$path}");
-    die();
 }
 
 function old($key, $default = '')

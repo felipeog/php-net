@@ -36,5 +36,4 @@ $db->query('UPDATE notes SET body = :body WHERE id = :note_id', [
     ':note_id' => $note_id
 ]);
 
-header('Location: /notes');
-die();
+redirect('/notes');

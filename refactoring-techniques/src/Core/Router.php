@@ -76,7 +76,6 @@ class Router
 
     protected function abort($code = Response::NOT_FOUND)
     {
-        header("Location: /error?code={$code}");
-        die();
+        redirect("/error?code={$code}");
     }
 }

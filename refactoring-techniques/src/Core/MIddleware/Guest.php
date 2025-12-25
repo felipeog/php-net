@@ -9,8 +9,7 @@ class Guest
     public function handle()
     {
         if (Session::has('user')) {
-            header('Location: /');
-            die();
+            redirect('/');
         }
     }
 }
