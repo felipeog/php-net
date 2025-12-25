@@ -4,12 +4,14 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 use Core\Response;
+use Core\Session;
 
 $db = App::resolve(Database::class);
 
-$user_id = $_SESSION['user']['id'] ?? null;
-$id = $_POST['id'] ?? null;
-$note = $db->query('SELECT * FROM notes WHERE id = :id', [':id' => $id])->fetchOrFail();
+$user = Session::get('user', []);
+$user_id = $user['id'] ?? null;
+$note_id = $_POST['id'] ?? null;
+$note = $db->query('SELECT * FROM notes WHERE id = :note_id', [':note_id' => $note_id])->fetchOrFail();
 
 authorize($note['user_id'] === $user_id, Response::FORBIDDEN);
 
@@ -29,9 +31,9 @@ if (!empty($errors)) {
     ]);
 }
 
-$db->query('UPDATE notes SET body = :body WHERE id = :id', [
+$db->query('UPDATE notes SET body = :body WHERE id = :note_id', [
     ':body' => $_POST['body'],
-    ':id' => $id
+    ':note_id' => $note_id
 ]);
 
 header('Location: /notes');

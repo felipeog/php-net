@@ -3,9 +3,9 @@
 use Core\App;
 use Core\Database;
 use Core\Validator;
+use Core\Session;
 
 $db = App::resolve(Database::class);
-
 
 $errors = [];
 
@@ -18,7 +18,8 @@ if (!empty($errors)) {
     return view('notes/create.view.php', ['errors' => $errors]);
 }
 
-$user_id = $_SESSION['user']['id'] ?? null;
+$user = Session::get('user', []);
+$user_id = $user['id'] ?? null;
 $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
     ':body' => $_POST['body'],
     ':user_id' => $user_id

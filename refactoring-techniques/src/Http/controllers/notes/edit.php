@@ -3,12 +3,14 @@
 use Core\App;
 use Core\Database;
 use Core\Response;
+use Core\Session;
 
 $db = App::resolve(Database::class);
 
-$user_id = $_SESSION['user']['id'] ?? null;
-$id = $_GET['id'] ?? null;
-$note = $db->query('SELECT * FROM notes WHERE id = :id', [':id' => $id])->fetchOrFail();
+$user = Session::get('user', []);
+$user_id = $user['id'] ?? null;
+$note_id = $_GET['id'] ?? null;
+$note = $db->query('SELECT * FROM notes WHERE id = :note_id', [':note_id' => $note_id])->fetchOrFail();
 
 authorize($note['user_id'] === $user_id, Response::FORBIDDEN);
 view('notes/edit.view.php', [
