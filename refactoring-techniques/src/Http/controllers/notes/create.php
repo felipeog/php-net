@@ -1,3 +1,10 @@
 <?php
 
-view('notes/create.view.php', ['errors' => []]);
+use Core\Session;
+
+$attributes = [
+    'errors' => Session::get('errors', []),
+    'old' => Session::get('old', [])
+];
+
+view('notes/create.view.php', $attributes);

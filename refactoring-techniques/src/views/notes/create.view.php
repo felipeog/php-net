@@ -9,7 +9,7 @@
 
         <br />
 
-        <textarea name="body" id="body" rows="10" cols="50"><?= $_POST['body'] ?? '' ?></textarea>
+        <textarea name="body" id="body" rows="10" cols="50"><?= $old['body'] ?? '' ?></textarea>
 
         <?php if (isset($errors['body'])): ?>
             <p><?= $errors['body'] ?></p>
