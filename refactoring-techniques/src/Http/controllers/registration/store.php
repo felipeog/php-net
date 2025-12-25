@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Authenticator;
 use Core\Database;
 use Core\Validator;
 
@@ -37,13 +38,14 @@ $db->query('INSERT INTO users (email, password) VALUES (:email, :password)', [
     ':email' => $email,
     ':password' => password_hash($password, PASSWORD_BCRYPT)
 ]);
-$user_id = $db->connection->lastInsertId();
 
+$auth = new Authenticator();
+$user_id = $db->connection->lastInsertId();
 $user = [
     'email' => $email,
     'id' => $user_id,
 ];
 
-login($user);
+$auth->login($user);
 header('Location: /');
 die();
