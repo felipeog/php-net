@@ -3,45 +3,34 @@
 use Core\App;
 use Core\Authenticator;
 use Core\Database;
-use Core\Validator;
+use Http\Forms\RegisterForm;
 
-$email = $_POST['email'];
-$password = $_POST['password'];
-$errors = [];
+$attributes = [
+    'email' => $_POST['email'],
+    'password' => $_POST['password']
+];
 
-if (!Validator::email($email)) {
-    $errors['email'] = 'Invalid email address';
-}
-
-if (!Validator::string($password, 8, 255)) {
-    $errors['password'] = 'Password length must be between 8 and 255';
-}
-
-if (!empty($errors)) {
-    return view('registration/create.view.php', [
-        'errors' => $errors
-    ]);
-}
+$form = RegisterForm::validateForm($attributes);
 
 $db = App::resolve(Database::class);
 
 $existing_user = $db->query('SELECT * FROM users WHERE email = :email', [
-    ':email' => $email
+    ':email' => $attributes['email'],
 ])->fetch();
 
 if ($existing_user) {
-    redirect('/');
+    $form->error('email', 'Invalid email')->throw();
 }
 
 $db->query('INSERT INTO users (email, password) VALUES (:email, :password)', [
-    ':email' => $email,
-    ':password' => password_hash($password, PASSWORD_BCRYPT)
+    ':email' => $attributes['email'],
+    ':password' => password_hash($attributes['password'], PASSWORD_BCRYPT)
 ]);
 
 $auth = new Authenticator();
 $user_id = $db->connection->lastInsertId();
 $user = [
-    'email' => $email,
+    'email' => $attributes['email'],
     'id' => $user_id,
 ];
 
