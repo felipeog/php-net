@@ -23,6 +23,6 @@ class Validator
             return false;
         }
 
-        return filter_var($value, FILTER_VALIDATE_EMAIL) !== false;
+        return (bool) filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 }
