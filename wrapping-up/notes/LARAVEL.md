@@ -2,7 +2,8 @@
 
 ## Sail
 
-- `vendor/bin/sail up`: starts Docker conatainers
+- `curl -s https://laravel.build/my-app | bash`: creates a Laravel Sail project
+- `vendor/bin/sail up`: starts Docker containers
   - `-d`: starts in the background
 - `vendor/bin/sail stop`: stops all containers
 - `vendor/bin/sail ps`: lists all containers
