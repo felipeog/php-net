@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>Hello, {{ $greeting }}!</h1>
+    <h1>About</h1>
 </body>
 
 </html>
