@@ -11,5 +11,5 @@ Learning PHP by making projects.
 1. [Sessions and Authentication](./sessions-and-authentication)
 1. [Refactoring Techniques](./refactoring-techniques)
 1. [Meet Composer](./meet-composer)
-1. Testing
+1. [Testing](./testing)
 1. Wrapping Up
