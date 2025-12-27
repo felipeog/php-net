@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: app
+    build: .
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./src:/var/www/html
