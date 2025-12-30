@@ -1,6 +1,6 @@
 # Psalm
 
 - `composer require --dev vimeo/psalm`: install Psalm
-- `./vendor/bin/psalm`
+- `./vendor/bin/psalm`: run Psalm
   - `--init`: generate config file
-  - `--no-cache`: run Psalm
+  - `--no-cache`: runs Psalm without using cache
