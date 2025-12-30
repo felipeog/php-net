@@ -1,17 +1,17 @@
 <?php
 
-// blueprint: Person
+// blueprint: Person class
 class Person
 {
 }
 
-// implementation: $person
+// implementation: $person object
 $person = new Person();
 
 // noun: Post
 class Post
 {
-    // verb: archive
+    // method: behavior
     public function archive()
     {
         echo "Archived\n";
