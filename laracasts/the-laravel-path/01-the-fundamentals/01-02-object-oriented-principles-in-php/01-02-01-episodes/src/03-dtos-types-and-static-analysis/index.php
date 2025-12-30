@@ -7,8 +7,7 @@ class Song
     public function __construct(
         public string $name,
         public string $artist
-    ) {
-    }
+    ) {}
 }
 
 $songs = [
@@ -30,8 +29,7 @@ class Playlist
     public function __construct(
         public string $name,
         public array $songs
-    ) {
-    }
+    ) {}
 
     public function shuffle()
     {

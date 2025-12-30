@@ -1,9 +1,7 @@
 <?php
 
 // blueprint: Person class
-class Person
-{
-}
+class Person {}
 
 // implementation: $person object
 $person = new Person();
