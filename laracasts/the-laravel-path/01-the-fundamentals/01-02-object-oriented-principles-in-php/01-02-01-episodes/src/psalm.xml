@@ -9,9 +9,7 @@
     findUnusedCode="true"
 >
     <projectFiles>
-        <directory name="02-objects" />
-        <directory name="01-classes" />
-        <directory name="03-dtos-types-and-static-analysis" />
+        <directory name="." />
         <ignoreFiles>
             <directory name="vendor" />
         </ignoreFiles>
