@@ -17,3 +17,5 @@ Learning PHP by making projects.
     - 1.1.9 - [Wrapping Up](/laracasts/the-laravel-path/01-the-fundamentals/01-01-php-for-beginners/01-01-09-wrapping-up)
   - 1.2 - Object-Oriented Principles in PHP
     - 1.2.1 - [Episodes](/laracasts/the-laravel-path/01-the-fundamentals/01-02-object-oriented-principles-in-php/01-02-01-episodes)
+  - 1.3 - JavaScript Essentials for PHP Developers
+    - 1.3.1 - [The Basics](/laracasts/the-laravel-path/01-the-fundamentals/01-03-javascript-essentials-for-php-developers/01-03-01-the-basics)
